@@ -41,7 +41,7 @@ package com.iluwatar.proxy;
 public class App {
 
   /**
-   * Program entry point
+   * Program entry point1
    */
   public static void main(String[] args) {
 
