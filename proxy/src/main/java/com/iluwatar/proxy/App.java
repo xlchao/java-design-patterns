@@ -44,7 +44,13 @@ public class App {
    * Program entry point1
    */
   public static void main(String[] args) {
-
+    /**
+     * 代理模式，与被代理对象实现相同的接口，并持有被代理对象的实例
+     * 1，远程代理，隐藏一个对象存在于不同地址空间的事实
+     * 2，虚拟代理，是根据需要创建开销很大的对象。通过它来存放真实实例化需要很长时间的对象
+     * 3, 安全代理，控制访问权限
+     * 4，智能指引，控制访问次数等等。。
+     */
     WizardTowerProxy proxy = new WizardTowerProxy(new IvoryTower());
     proxy.enter(new Wizard("Red wizard"));
     proxy.enter(new Wizard("White wizard"));
