@@ -22,6 +22,8 @@
  */
 package com.iluwatar.observer;
 
+import com.iluwatar.observer.abstrart.Race;
+
 /**
  * 
  * WeatherType enumeration
@@ -35,4 +37,10 @@ public enum WeatherType {
   public String toString() {
     return this.name().toLowerCase();
   }
+
+
+  public void reUpdate(Race race){
+//    race.update(this);
+  }
+
 }

@@ -22,6 +22,8 @@
  */
 package com.iluwatar.observer;
 
+import com.iluwatar.observer.abstrart.IObservable;
+import com.iluwatar.observer.abstrart.Observable;
 import com.iluwatar.observer.generic.GHobbits;
 import com.iluwatar.observer.generic.GOrcs;
 import com.iluwatar.observer.generic.GWeather;
@@ -51,7 +53,7 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-
+    //不关心通知者
     Weather weather = new Weather();
     weather.addObserver(new Orcs());
     weather.addObserver(new Hobbits());
@@ -63,6 +65,7 @@ public class App {
 
     // Generic observer inspired by Java Generics and Collection by Naftalin & Wadler
     LOGGER.info("--Running generic version--");
+    //通知者抽象版本
     GWeather gWeather = new GWeather();
     gWeather.addObserver(new GOrcs());
     gWeather.addObserver(new GHobbits());
@@ -71,5 +74,15 @@ public class App {
     gWeather.timePasses();
     gWeather.timePasses();
     gWeather.timePasses();
+
+    LOGGER.info("--Running lambd version--");
+    IObservable observable = new Observable();
+    observable.addFunction(weatherType -> LOGGER.info(weather.toString()+1));
+    observable.addFunction(weatherType -> LOGGER.info(weather.toString()+2));
+    observable.addFunction(weatherType -> LOGGER.info(weather.toString()+3));
+    observable.addFunction(weatherType -> LOGGER.info(weather.toString()+4));
+    observable.funtionNotify(WeatherType.SUNNY);
+    observable.funtionNotify(WeatherType.RAINY);
+    observable.funtionNotify(WeatherType.COLD);
   }
 }
