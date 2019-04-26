@@ -162,6 +162,7 @@
         <module>trampoline</module>
         <module>serverless</module>
         <module>ambassador</module>
+        <module>leadcode</module>
 	<module>acyclic-visitor</module>
 	<module>collection-pipeline</module>
 	<module>master-worker-pattern</module>
